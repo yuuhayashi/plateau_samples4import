@@ -22,11 +22,11 @@
 └── 4_ready4upload
 ```
 
-* 0_original: PlateauオリジナルのCityGMLファイルです
-* 1_just_convert: 1stの処理を行い、CityGMLをOSMデータに変換したファイルです
-* 2_downloaded_osm: 2ndの処理を行い、対象となるメッシュ地域の既存OSMデータをダウンロードしたものです
-* 3_mechanical_merge: 3rdの処理を行い、変換したPlateauデータと既存OSMデータのマージを行ったものです
-* 4_ready4upload: 4thの処理を行い、3rdの結果からOSMにアップロードできる状態に変換を行ったものです（注: 本来は手動の確認処理を行ってから4thの変換を行いますが、今回はその確認を行っていません）
+* `0_original`: PlateauオリジナルのCityGMLファイルです
+* `1_just_convert`: 1stの処理を行い、CityGMLをOSMデータに変換したファイルです
+* `2_downloaded_osm`: 2ndの処理を行い、対象となるメッシュ地域の既存OSMデータをダウンロードしたものです
+* `3_mechanical_merge`: 3rdの処理を行い、変換したPlateauデータと既存OSMデータのマージを行ったものです
+* `4_ready4upload`: 4thの処理を行い、3rdの結果からOSMにアップロードできる状態に変換を行ったものです（注: 本来は手動の確認処理を行ってから4thの変換を行いますが、今回はその確認を行っていません）
 
 それぞれのファイルにはメッシュ番号が記載されているため、同じメッシュ番号のファイルをJOSMに読み込ませることで、変換状況の比較が可能になります。
 
