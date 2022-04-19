@@ -1,13 +1,9 @@
 # plateau_samples4import
 このデータは、現在OpenStreetMapへのインポートが提案され、議論段階にあるPlateau建物データについて、スクリプトでデータを変換した際のサンプルを提供するものです。
 
-変換は2022年4月上旬に行われ、[スクリプト](https://github.com/yuuhayashi/citygml-osm)は[バージョン1.4.3](https://github.com/yuuhayashi/citygml-osm/releases/tag/v1.4.3)を利用しています。
+変換は2022年4月上旬に行われ、[スクリプト](https://github.com/yuuhayashi/citygml-osm)は[バージョン1.4.4](https://github.com/yuuhayashi/citygml-osm/releases/tag/v1.4.4)を利用しています。
 
 **このデータは絶対に、OpenStreetMapへのアップロードを行わないでください！**
-
-## 横浜市の一部データについて
-スクリプトの1.4.3では変換に失敗する、というIssueがあり、最新版の1.4.4で修正されています。
-今後、1.4.4で試行した後、追加で登録する予定です。
 
 ## ディレクトリ構造
 それぞれのサンプルには、以下5つのディレクトリが用意されています。
