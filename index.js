@@ -1,6 +1,5 @@
 var debug = {};
-var site = "https://nyampire.github.io/plateau_samples4import/";
-
+var site = "https://yuuhayashi.github.io/plateau_samples4import/";
 
 var map = L.map('map',{
   center: [35.658, 139.745],
@@ -74,6 +73,27 @@ $.getJSON(site+dpath11230+"/bldg/"+dpath11230+".geojson", function(data) {
 // 11326_moroyama-machi_2020
 var dpath11326 = "11326_moroyama-machi_2020";
 $.getJSON(site+dpath11326+"/bldg/"+dpath11326+".geojson", function(data) {
+    L.geoJson(data, {
+        onEachFeature: function (feature, layer) {
+			if (feature.geometry.type === "Point") {
+				if (feature.properties.path === "undefined") {
+				    layer.bindPopup("code: "+ feature.properties.id
+				    	+"<br/>version: "+feature.properties.version);
+				}
+				else {
+				    layer.bindPopup("code: "+ feature.properties.id
+				    	+"<br/>version: "+feature.properties.version
+				    	+"<br/>path: "+feature.properties.path
+				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
+				}
+			}
+		}
+    }).addTo(map);
+});
+
+// 20202_20202_matsumoto-shi_2020_citygml_3_op
+var dpath20202 = "20202_matsumoto-shi_2020_citygml_3_op";
+$.getJSON(site+dpath20202+"/bldg/"+dpath20202+".geojson", function(data) {
     L.geoJson(data, {
         onEachFeature: function (feature, layer) {
 			if (feature.geometry.type === "Point") {
