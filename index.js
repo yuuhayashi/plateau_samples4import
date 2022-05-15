@@ -133,6 +133,27 @@ $.getJSON(site+dpath20209+"/bldg/"+dpath20209+".geojson", function(data) {
     }).addTo(map);
 });
 
+// 40100_kitakyushu-shi_2020_citygml_3_op
+var dpath40100 = "40100_kitakyushu-shi_2020_citygml_3_op";
+$.getJSON(site+dpath40100+"/bldg/"+dpath40100+".geojson", function(data) {
+    L.geoJson(data, {
+        onEachFeature: function (feature, layer) {
+			if (feature.geometry.type === "Point") {
+				if (feature.properties.path === "undefined") {
+				    layer.bindPopup("code: "+ feature.properties.id
+				    	+"<br/>version: "+feature.properties.version);
+				}
+				else {
+				    layer.bindPopup("code: "+ feature.properties.id
+				    	+"<br/>version: "+feature.properties.version
+				    	+"<br/>path: "+feature.properties.path
+				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
+				}
+			}
+		}
+    }).addTo(map);
+});
+
 //Globals that we can change later.
 var fillColor = 'rgba(149,139,255,0.4)';
 var strokeColor = 'rgb(20,20,20)';
