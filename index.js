@@ -10,6 +10,18 @@ var map = L.map('map',{
   contextmenuWidth: 180,
 });
 
+//ポップアップを表示するための関数
+var popup = L.popup();
+var onGsClick = function(e) {
+    if (e.feature) {
+		return
+		    popup
+		        .setLatLng(e.latlng)
+		        .setContent(e.feature.properties["id"])
+		        .openOn(map);
+	}
+};
+
 //OSMレイヤー追加
 var osm = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -18,38 +30,8 @@ var osm = L.tileLayer(
     }
 );
 osm.addTo(map);
-
-// テストデータ: アイコン表示
-$.getJSON(site+"tile/test.geojson", function(data) {
-    L.geoJson(data, {
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.id);
-        }
-    }).addTo(map);
-});
-
-// 10207 館林市
-var dpath10207 = "10207_tatebayashi-shi_2020";
-$.getJSON(site+dpath10207+"/bldg/"+dpath10207+".geojson", function(data) {
-    L.geoJson(data, {
-        onEachFeature: function (feature, layer) {
-			if (feature.geometry.type === "Point") {
-				if (feature.properties.path === "undefined") {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version);
-				}
-				else {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version
-				    	+"<br/>path: "+feature.properties.path
-				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
-				}
-			}
-		}
-    }).addTo(map);
-});
-
 // 11230_niiza-shi_2020
+/*
 var dpath11230 = "11230_niiza-shi_2020";
 $.getJSON(site+dpath11230+"/bldg/"+dpath11230+".geojson", function(data) {
     L.geoJson(data, {
@@ -69,90 +51,28 @@ $.getJSON(site+dpath11230+"/bldg/"+dpath11230+".geojson", function(data) {
 		}
     }).addTo(map);
 });
-
-// 11326_moroyama-machi_2020
-var dpath11326 = "11326_moroyama-machi_2020";
-$.getJSON(site+dpath11326+"/bldg/"+dpath11326+".geojson", function(data) {
-    L.geoJson(data, {
-        onEachFeature: function (feature, layer) {
-			if (feature.geometry.type === "Point") {
-				if (feature.properties.path === "undefined") {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version);
-				}
-				else {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version
-				    	+"<br/>path: "+feature.properties.path
-				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
-				}
-			}
-		}
-    }).addTo(map);
+*/
+// 11230_niiza-shi_2020
+var mvt11230 = new L.TileLayer.MVTSource({
+    url: site + "tile/t11230/{z}/{x}/{y}.pbf",
+    clickableLayers: ["citygml"],	//クリックできるレイヤー名を指定する
+    mutexToggle:true,
+    getIDForLayerFeature: function(feature) {
+        return feature.properties["id"];
+    },
+    onClick: onGsClick, //地物クリック時の処理
+    style: function (feature) {
+        var style = {};
+        style.color = 'rgba(255,0,0,1)';
+        style.radius = 10;
+        style.selected = {
+          radius: 15
+        };
+        return style;
+    }
 });
+map.addLayer(mvt11230);
 
-// 20202_20202_matsumoto-shi_2020_citygml_3_op
-var dpath20202 = "20202_matsumoto-shi_2020_citygml_3_op";
-$.getJSON(site+dpath20202+"/bldg/"+dpath20202+".geojson", function(data) {
-    L.geoJson(data, {
-        onEachFeature: function (feature, layer) {
-			if (feature.geometry.type === "Point") {
-				if (feature.properties.path === "undefined") {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version);
-				}
-				else {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version
-				    	+"<br/>path: "+feature.properties.path
-				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
-				}
-			}
-		}
-    }).addTo(map);
-});
-
-// 20209_ina-shi_2020_citygml_4_op
-var dpath20209 = "20209_ina-shi_2020_citygml_4_op";
-$.getJSON(site+dpath20209+"/bldg/"+dpath20209+".geojson", function(data) {
-    L.geoJson(data, {
-        onEachFeature: function (feature, layer) {
-			if (feature.geometry.type === "Point") {
-				if (feature.properties.path === "undefined") {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version);
-				}
-				else {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version
-				    	+"<br/>path: "+feature.properties.path
-				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
-				}
-			}
-		}
-    }).addTo(map);
-});
-
-// 40100_kitakyushu-shi_2020_citygml_3_op
-var dpath40100 = "40100_kitakyushu-shi_2020_citygml_3_op";
-$.getJSON(site+dpath40100+"/bldg/"+dpath40100+".geojson", function(data) {
-    L.geoJson(data, {
-        onEachFeature: function (feature, layer) {
-			if (feature.geometry.type === "Point") {
-				if (feature.properties.path === "undefined") {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version);
-				}
-				else {
-				    layer.bindPopup("code: "+ feature.properties.id
-				    	+"<br/>version: "+feature.properties.version
-				    	+"<br/>path: "+feature.properties.path
-				    	+"<br/><a href='"+ site +feature.properties.path +"'>DOWNLOAD</a>");
-				}
-			}
-		}
-    }).addTo(map);
-});
 
 //Globals that we can change later.
 var fillColor = 'rgba(149,139,255,0.4)';
