@@ -1,10 +1,11 @@
 {
+	"site": "./data/",
 	"list": [
-		{"code": "10207", "name": "館林市", "path": "10207_tatebayashi-shi_2020"},
-		{"code": "11230", "name": "埼玉県新座市", "path": "11230_niiza-shi_2020"},
-		{"code": "11326", "name": "埼玉県毛呂山町", "path": "11326_moroyama-machi_2020"},
-		{"code": "20202", "name": "長野県松本市", "path": "20202_matsumoto-shi_2020_citygml_3_op"},
-		{"code": "20209", "name": "長野県伊那市", "path": "20209_ina-shi_2020_citygml_4_op"},
-		{"code": "40100", "name": "北九州市", "path": "40100_kitakyushu-shi_2020_citygml_3_op"}
+		{"code": "10207", "name": "群馬県 館林市", "path": "10207_tatebayashi-shi_2020", "coordinates":[139.5430,36.2447]},
+		{"code": "11230", "name": "埼玉県 新座市", "path": "11230_niiza-shi_2020", "coordinates":[139.5553,35.7896]},
+		{"code": "11326", "name": "埼玉県 毛呂山町", "path": "11326_moroyama-machi_2020", "coordinates":[139.31614,35.94053]},
+		{"code": "20202", "name": "長野県 松本市", "path": "20202_matsumoto-shi_2020_citygml_3_op", "coordinates":[137.96847,36.23800]},
+		{"code": "20209", "name": "長野県 伊那市", "path": "20209_ina-shi_2020_citygml_4_op", "coordinates":[137.95746,35.82935]},
+		{"code": "40100", "name": "福岡県 北九州市", "path": "40100_kitakyushu-shi_2020_citygml_3_op", "coordinates":[130.8749015,33.8829996]}
 	]
 }
