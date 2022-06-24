@@ -40,7 +40,7 @@ function loadMap() {
 		site = data1.site;
 		style = new ol.style.Style({
 		    image: new ol.style.Icon({
-		        src: site + 'lib/img/osm_200x200.png',
+		        src: 'lib/img/osm_200x200.png',
 		        anchor: [0.5, 0.5],
 		        scale: 0.2
 		    }),
