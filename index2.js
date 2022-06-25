@@ -115,7 +115,7 @@ function loadMap() {
 		            var descriptionHTML =
 		                "<div>code: " + info.properties.id + "</div>" +
 		                "<div>version: " + info.properties.version + "</div>" +
-		                "<div><a href='"+ dir + info.properties.path +"'>" + info.properties.path + "</a></div>";
+		                "<div><a href='"+ site + dir + info.properties.path +"'>" + info.properties.path + "</a></div>";
 		            element.innerHTML = descriptionHTML;
 		            __overlay.setPosition(coordinates);
 		            __map.addOverlay(__overlay);
