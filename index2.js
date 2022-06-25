@@ -6,6 +6,7 @@ var __lineLayer = null;
 
 var code = "0000";
 var dir = "./";
+var name = "";
 var lonlat = [139.7637,35.6808];
 
 var queryString = window.location.search;
@@ -51,6 +52,7 @@ function loadMap() {
 			if (this.code == code) {
 				lonlat = this.coordinates;
 				dir = this.path + "/bldg/";
+				name = this.name;
 			}
 	    });
 
@@ -67,6 +69,8 @@ function loadMap() {
 			})
 		});
 		
+		var title = document.getElementById("title");
+		title.innerHTML = "PLATEAU OSMデータ : " + code + " " + name;
 	
 	    // 表示するためのレイヤーを作成する
 	    __markerLayer = new ol.layer.Vector({
