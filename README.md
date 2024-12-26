@@ -4,20 +4,20 @@
 変換は2022年５月上旬に行われ、[スクリプト](https://github.com/yuuhayashi/citygml-osm)は[バージョン1.4.6](https://github.com/yuuhayashi/citygml-osm/releases/tag/v1.4.6)を利用しています。
 
 
-**このデータは絶対に、OpenStreetMapへのアップロードを行わないでください！**
+## [配信サイト](http://surveyor.mydns.jp/osm-data/)
 
-## [配信サイト](https://yuuhayashi.github.io/plateau_samples4import/)
-
-[配信サイト](https://yuuhayashi.github.io/plateau_samples4import/)
+[配信サイト](http://surveyor.mydns.jp/osm-data/](http://surveyor.mydns.jp/osm-data/))
 
 ![image](lib/Screenshot_2022-05-14.png)
 
-[配信サイト](https://yuuhayashi.github.io/plateau_samples4import/)で、PLATEAUの変換データをダウンロードすることができます。
+[配信サイト](http://surveyor.mydns.jp/osm-data/)で、PLATEAUの変換データをダウンロードすることができます。
 
 
 ## 配信ファイル
 
-[配信サイト](https://yuuhayashi.github.io/plateau_samples4import/)からダウンロードしたZIPファイルを解凍すると、以下4つのファイルが展開されます。
+[配信サイト]([https://yuuhayashi.github.io/plateau_samples4import/](http://surveyor.mydns.jp/osm-data/))からダウンロードしたZIPファイルを解凍すると、以下4つのファイルが展開されます。
+
+「「citygml-osm」を使った openStreetMap の編集方法」[How to Use](https://github.com/yuuhayashi/citygml-osm/wiki/How_to_use)
 
 各ファイルは、[インポート作業手順](https://qiita.com/nyampire/items/1c10afdd36750c87154d)のなかで行う、1st, 2nd, 3rdのそれぞれのスクリプトを回した結果です。
 
@@ -43,4 +43,5 @@
 
 ただし、JOSMでのマージの際にいくつか競合が発生しており、無理やりマージを行っています。あくまでも概況を確認するためのものとしてお使いください。
 
-また、繰り返しますが、 **このデータは絶対に、OpenStreetMapへのアップロードを行わないでください！**
+[Backup-site](https://yuuhayashi.github.io/plateau_samples4import/) このGitHub。
+
